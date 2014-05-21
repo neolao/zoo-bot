@@ -1,3 +1,6 @@
 [submodule "models/turtle-a"]
 	path = models/turtle-a
 	url = git@github.com:neolao/zoo-bot-turtle-a.git
+[submodule "system"]
+	path = system
+	url = git@github.com:neolao/zoo-bot-system.git
