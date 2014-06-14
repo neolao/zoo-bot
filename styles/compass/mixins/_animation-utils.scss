@@ -1,0 +1,62 @@
+/**
+ * Create an animation
+ */
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
+    @-moz-keyframes #{$name} {
+        @content;
+    }
+    @-ms-keyframes #{$name} {
+        @content;
+    }
+    @keyframes #{$name} {
+        @content;
+    }
+}
+
+/**
+ * Pause effect
+ */
+@include keyframes(animation-pause) {
+}
+
+/**
+ * Apply an animation
+ *
+ * @param   string  $name               The name of the animation
+ * @param   time    $duration           The duration
+ * @param   count   $iteration-count    The iteration count
+ * @param   string  $direction          The direction (normal, reverse, alternate, alternate-inverse)
+ * @param   time    $delay              The delay
+ * @param   string  $timing-function    The timing function (ease, ease-in, ease-out, ease-in-out, linear, cubic-bezier(0.1, 0.7, 1.0, 0.1), step-start, step-stop, steps(4, end))
+ * @see https://developer.mozilla.org/fr/docs/CSS/animation
+ */
+@mixin animation($name, $duration: 2s, $iteration-count: infinite, $direction: normal, $delay: 0, $timing-function: linear) {
+    -moz-animation: #{$name} $duration $iteration-count $direction;
+    -webkit-animation: #{$name} $duration $iteration-count $direction;
+    animation: #{$name} $duration $iteration-count $direction;
+
+    @if $delay != 0 {
+        -moz-animation-delay: $delay;
+        -webkit-animation-delay: $delay;
+        animation-delay: $delay;
+    }
+    @if $timing-function != linear {
+        -moz-animation-timing-function: $timing-function;
+        -webkit-animation-timing-function: $timing-function;
+        animation-timing-function: $timing-function;
+    }
+}
+
+/**
+ * Apply a custom animation
+ *
+ * @param   mixed   $content       The content
+ */
+@mixin animation-custom($content) {
+    -moz-animation: $content;
+    -webkit-animation: $content;
+    animation: $content;
+}
