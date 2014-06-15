@@ -16,28 +16,69 @@ html, body {
     font-size: 16px;
 }
 
-// Catcher image
-body {
-    background: url(../images/turtle-a.jpg) no-repeat center top;
-    background-size: 1000px 664px;
 
+// Landing container
+// Catcher image
+// 1000x646, 600x388, 300x194
+$catcher-width: 1000px;
+$catcher-height: 646px;
+$catcher-width-2: 600px;
+$catcher-height-2: 388px;
+$catcher-width-3: 300px;
+$catcher-height-3: 194px;
+$ratio: 646 / 1000;
+.landing {
     &:before {
         content: "";
         position: absolute;
-        top: 0;
+        top: 100px;
         left: 0;
         display: block;
-        background: url(../images/turtle-a-raspberry.jpg) no-repeat center top;
+        background: url(../images/turtle-a-w1000.jpg) no-repeat center top;
+        background-size: $catcher-width $catcher-height;
         width: 100%;
-        height: 664px;
+        height: 100%;
+    }
+    &:after {
+        content: "";
+        position: absolute;
+        top: 100px;
+        left: 0;
+        display: block;
+        background: url(../images/turtle-a-raspberry-w1000.jpg) no-repeat center top;
+        background-size: $catcher-width $catcher-height;
+        width: 100%;
+        height: 100%;
 
-        @include animation(catcher, $duration: 5s);
+        @include animation(catcher, $duration: 8s, $iteration-count: infinite, $direction: normal, $delay: 0, $timing-function: ease-in-out);
+    }
+
+    // Responsive
+    @media screen and (max-width: 1000px) {
+        &:before, &:after {
+            background-size: contain;
+        }
+    }
+    @media screen and (max-width: 600px) {
+        &:before {
+            background-image: url(../images/turtle-a-w600.jpg);
+        }
+        &:after {
+            background-image: url(../images/turtle-a-raspberry-w600.jpg);
+        }
+    }
+    @media screen and (max-width: 300px) {
+        &:before {
+            background-image: url(../images/turtle-a-w300.jpg);
+        }
+        &:after {
+            background-image: url(../images/turtle-a-raspberry-w300.jpg);
+        }
     }
 }
 @include keyframes(catcher) {
     0% {
         opacity: 0;
-
     }
     50% {
         opacity: 1;
@@ -48,14 +89,92 @@ body {
 }
 
 
-article {
+// Landing title
+.landing-title {
     position: relative;
     z-index: 10;
-}
 
-// Landing style
-.landing-title {
     margin: 100px 0;
     text-align: center;
     font-size: 3rem;
+}
+
+
+// Landing description
+.landing-description {
+    position: relative;
+    z-index: 10;
+    margin-top: 500px;
+    font-size: 2rem;
+
+    h1 {
+        line-height: 1em;
+        font-weight: bold;
+        text-align: center;
+
+        strong {
+            white-space: nowrap;
+        }
+    }
+    p {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+}
+
+
+// Responsive
+@media screen and (max-width: 900px) {
+    .landing-description {
+        margin-top: 400px;
+
+        h1 .plus:last-of-type {
+            display: block;
+        }
+    }
+}
+@media screen and (max-width: 700px) {
+    .landing-description {
+        h1 .plus {
+            display: block;
+        }
+    }
+}
+@media screen and (max-width: 600px) {
+    .landing:before, .landing:after {
+        top: 50px;
+    }
+    .landing-title {
+        margin-top: 50px;
+    }
+    .landing-description {
+        margin-top: 300px;
+    }
+}
+@media screen and (max-width: 400px) {
+    .landing:before, .landing:after {
+        top: 20px;
+    }
+    .landing-title {
+        font-size: 2rem;
+        margin-top: 10px;
+    }
+    .landing-description {
+        margin-top: 200px;
+        h1 {
+            font-size: 1.5rem;
+        }
+    }
+}
+
+
+
+
+
+// "Coming soon" message
+.coming-soon {
+    text-align: center;
+    font-size: 2rem;
+
+    margin-top: 2em;
 }
