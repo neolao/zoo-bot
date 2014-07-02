@@ -9,14 +9,38 @@
         <meta property="og:title" content="ZOO BOT" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="http://zoo-bot.net/" />
-        <meta property="og:image" content="http://zoo-bot.net/styles/images/turtle-a-raspberry-w600.jpg" />
+        <meta property="og:image" content="http://zoo-bot.net/styles/images/turtle-a/w600/raspberry.jpg" />
         <meta property="og:description" content="The ZOO BOT project provides 3D models and a system for the Raspberry Pi" />
+
+        <script src="/javascripts/picturefill-2.1.0.min.js" async></script>
 
         <title>ZOO BOT</title>
     </head>
     <body>
         <article class="landing">
             <h1 class="landing-title">ZOO BOT</h1>
+
+            <!-- Catcher image -->
+            <figure class="landing-catcher">
+                <picture class="landing-catcher-base">
+                    <source srcset="/styles/images/turtle-a/w1000/base.jpg" media="(min-width: 1000px)"/>
+                    <source srcset="/styles/images/turtle-a/w600/base.jpg" media="(min-width: 600px)"/>
+                    <source srcset="/styles/images/turtle-a/w300/base.jpg, /styles/images/turtle-a/w600/base.jpg 2x"/>
+                    <img srcset="/styles/images/turtle-a/w300/base.jpg, /styles/images/turtle-a/w600/base.jpg 2x" alt="Base of the Turtle A"/>
+                </picture>
+                <picture class="landing-catcher-raspberry">
+                    <source srcset="/styles/images/turtle-a/w1000/raspberry.jpg" media="(min-width: 1000px)"/>
+                    <source srcset="/styles/images/turtle-a/w600/raspberry.jpg" media="(min-width: 600px)"/>
+                    <source srcset="/styles/images/turtle-a/w300/raspberry.jpg, /styles/images/turtle-a/w600/raspberry.jpg 2x"/>
+                    <img srcset="/styles/images/turtle-a/w300/raspberry.jpg, /styles/images/turtle-a/w600/raspberry.jpg 2x" alt="Turtle A with a Raspberry Pi"/>
+                </picture>
+                <picture class="landing-catcher-shell">
+                    <source srcset="/styles/images/turtle-a/w1000/shell.jpg" media="(min-width: 1000px)"/>
+                    <source srcset="/styles/images/turtle-a/w600/shell.jpg" media="(min-width: 600px)"/>
+                    <source srcset="/styles/images/turtle-a/w300/shell.jpg, styles/images/turtle-a/w600/shell.jpg 2x"/>
+                    <img srcset="/styles/images/turtle-a/w300/shell.jpg, /styles/images/turtle-a/w600/shell.jpg 2x" alt="Turtle A with a shell"/>
+                </picture>
+            </figure>
 
             <section class="landing-description">
                 <h1><strong>3D printed model</strong> <span class="plus">+</span> <strong>Cheap computer</strong> <span class="plus">+</span> <strong>Javascript API</strong></p>
@@ -25,6 +49,5 @@
 
             <p class="coming-soon">Coming soon ...</p>
         </article>
-
     </body>
 </html>
