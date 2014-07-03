@@ -46,6 +46,10 @@ $catcher-ratio: 646 / 1000;
     width: 100%;
 
     height: $catcher-large-height;
+
+    img {
+        max-width: 1000px;
+    }
 }
     .landing-catcher-base,
     .landing-catcher-raspberry,
